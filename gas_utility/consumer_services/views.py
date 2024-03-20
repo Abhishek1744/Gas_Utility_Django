@@ -28,15 +28,20 @@ def submit_service_request(request):
         form = ServiceRequestForm()
     return render(request, 'consumer_services/submit_request.html', {'form': form})
 
-@allow_all_users
-def request_status(request):
-    if isinstance(request.user, AnonymousUser):
-        # Handle unauthenticated users
-        # You can either redirect them to the login page or display a message
-        return redirect('login_url')
+# @allow_all_users
+# def request_status(request):
+#     if isinstance(request.user, AnonymousUser):
+#         # Handle unauthenticated users
+#         # You can either redirect them to the login page or display a message
+#         return redirect('login_url')
     
+#     service_requests = ServiceRequest.objects.filter(user=request.user)
+#     return render(request, 'consumer_services/request_status.html', {'service_requests': service_requests})
+@login_required
+def request_status(request):
     service_requests = ServiceRequest.objects.filter(user=request.user)
     return render(request, 'consumer_services/request_status.html', {'service_requests': service_requests})
+
 @allow_all_users
 def account_information(request):
     account_info = AccountInformation.objects.get(user=request.user)
