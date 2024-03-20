@@ -36,4 +36,3 @@ This Django application is designed to manage service requests for a gas utility
 - For any issues or questions, please refer to the project's documentation or contact the project maintainers.
 
 ---
-**Note:** Replace `your-username` in the clone command with your actual GitHub username.
