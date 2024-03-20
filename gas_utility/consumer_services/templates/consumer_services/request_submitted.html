@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Service Request Submitted</h2>
+  <p>Your service request has been submitted successfully.</p>
+  <p>You will receive updates on the status of your request via email or through the "View Request Status" page.</p>
+  <p><a href="{% url 'consumer_services:request_status' %}">View Request Status</a></p>
+{% endblock %}
